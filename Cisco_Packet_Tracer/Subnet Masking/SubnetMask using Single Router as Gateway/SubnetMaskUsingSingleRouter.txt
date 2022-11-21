@@ -1,0 +1,26 @@
+//System Setting Up//
+Here we will use Routers as gateway.
+========================================
+Step-1: Set ip on every PC.
+Step-2: Set Defalut Gateway 192.168.5.1 on every Computer in Network A .
+Step-3: Set Default Gateway 192.168.6.1 on every Computer in Network B .
+Step-4: Set ip on Gig0/0/0 port of Router as 192.168.5.1
+Step-5: Set ip on Gig0/0/0 port of Router2 as 192.168.6.1
+
+Now the the system is ready to Command Line Interface (CLI) for every Router. 
+
+//********************* CLI for the Router ******************
+// select Router and command
+Router> enable
+Router# configure terminal
+Router(config)# interface gigabiEthernet 0/0/0 
+Router(config-if)# ip address 192.168.5.1 255.255.255.0
+Router(config-if)# no shutdown
+Router(config-if)# exit 
+Router(confog)# interface gigabiEthernet 0/0/1
+Router(config-if)# ip address 192.168.6.1 255.255.255.0
+Router(config-if)# no shutdown
+Router(config-if)# exit 
+Router(config)# do write memory
+
+//***********Thank you*****************

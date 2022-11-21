@@ -1,0 +1,31 @@
+// here I used 4 PC under 1 switch and created two virtual LAN (vlan10 and vlan20). Every VLAN has two PC only. 
+// run the following commands
+
+Switch>enable
+Switch#config terminal
+
+Switch(config)#interface fastEthernet0/1
+Switch(config-if)#switchport mode access
+Switch(config-if)#switchport access vlan 10
+Switch(config-if)#no shutdown
+Switch(config-if)#exit
+
+Switch(config)#interface fastEthenet0/2
+Switch(config-if)#switchport mode access
+Switch(config-if)#switchport access vlan 10
+Switch(config-if)#no shutdown
+Switch(config-if)#exit
+
+Switch(config)#interface fastEthernet fa0/3
+Switch(config-if)#switchport mode access
+Switch(config-if)#switchport access vlan 20
+Switch(config-if)#no shutdown
+Switch(config-if)#exit
+
+Switch(config)#interface fastEthernet0/4
+Switch(config-if)#switchport mode access
+Switch(config-if)#switchport access vlan 20
+Switch(config-if)#no shutdown
+Switch(config-if)#exit
+
+Switch(config)#do write memory
